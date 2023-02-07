@@ -1,0 +1,27 @@
+body {
+    background-color: lightgray;
+  }
+  
+  .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    color: darkblue;
+  }
+  
+  label,
+  input,
+  select,
+  button {
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    background-color: darkblue;
+    color: white;
+    border-radius: 10px;
+  }
+  

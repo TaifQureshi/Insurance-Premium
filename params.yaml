@@ -1,11 +1,13 @@
 load_data:
-  raw_data_csv: data/raw/insurance.csv
-  process_data_csv: data/processed/processed.csv
+  raw_data: data/raw/insurance.csv
+  process_data: data/processed/processed.csv
 
 split_data:
   train_path: data/processed/train_insurance.csv
   test_path: data/processed/test_insurance.csv
   split_ratio: 0.250
+
+log_dir: logs
 
 model_dirs: saved_models
 

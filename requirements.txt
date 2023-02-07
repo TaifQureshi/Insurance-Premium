@@ -4,3 +4,7 @@
 # third party packages
 seaborn
 matplotlib
+pandas
+flask
+pytest
+jupyter

@@ -7,3 +7,6 @@ The goal of this project is to give people an estimate of how much they need bas
 ## Approach:
 The classical machine learning tasks like Data Exploration, Data Cleaning, Feature Engineering, Model Building and Model Testing. Try out different machine learning algorithms that’s best fit for the above case. Some Famous Algorithms: - Multiple Linear Regression, Decision tree Regression and Gradient Boosting, Decision tree, Regression
 
+## Contributors <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Developer.gif" width=35 height=25>
+- Sahil Patel
+- Taif Qureshi
