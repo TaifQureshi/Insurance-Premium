@@ -1,4 +1,4 @@
-from src.config import get_config
+from src.config import get_config, get_base_path
 import os
 import logging
 import pandas as pd
@@ -30,6 +30,12 @@ def split_data(config_path: str = 'params.yaml') -> (pd.DataFrame, pd.DataFrame)
         split_ratio = config.get('split_data')['split_ratio']
         random_state = config.get('split_data')['random_state']
         train, test = train_test_split(data, test_size=split_ratio, random_state=random_state)
+        logger.info('saving train test split data')
+        base_path = get_base_path()
+        train_path = os.path.join(base_path, train_path)
+        test_path = os.path.join(base_path, test_path)
+        train.to_csv(train_path, index=False)
+        test.to_csv(test_path, index=False)
         return train, test
     except Exception as e:
         logger.error('error')
