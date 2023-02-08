@@ -55,8 +55,7 @@ def get_processed_data(config_path: str = 'params.yaml') -> pd.DataFrame or None
     logger.info("saving the data for future use")
     if not os.path.exists(os.path.dirname(full_path)):
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
-    en_coded.to_csv(full_path)
-
+    en_coded.to_csv(full_path, index=False)
     return en_coded
 
 
