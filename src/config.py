@@ -34,6 +34,6 @@ def get_base_path() -> str:
 if __name__ == '__main__':
     from src.set_logger import set_logger
 
-    set_logger('config_test_logs')
+    set_logger('test_config')
     config = get_config('params.yaml')
     print(config)

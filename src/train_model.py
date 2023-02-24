@@ -6,6 +6,7 @@ import numpy as np
 import os
 import joblib
 import logging
+import json
 
 logger = logging.getLogger('train_model')
 
@@ -29,7 +30,7 @@ def train_model(config_path: str = 'params.yaml'):
         model_path = os.path.join(model_dir, "model.pkl")
         if os.path.exists(model_path):
             logger.info("model already exits")
-            return
+            return joblib.load(model_path)
 
         logger.info('training the model')
         target_col = config['target_data']
@@ -54,12 +55,33 @@ def train_model(config_path: str = 'params.yaml'):
         logger.info("saving the model")
         joblib.dump(gb, model_path)
         logger.info("model saved")
-        
+
+        #################reports logging###############
+
+        os.makedirs(os.path.join(base_path, 'reports'), exist_ok=True)
+
+        scores_file = os.path.join(base_path, config["reports"]["scores"])
+        params_file = os.path.join(base_path, config["reports"]["params"])
+
+        with open(scores_file, "w+") as f:
+            scores = {
+                "rmse": rmse,
+                "mse": mse,
+                "r2 score": r2,
+                "rmse": rmse,
+            }
+            json.dump(scores, f, indent=4)
+        with open(params_file, "w+") as f:
+            json.dump(model_config, f, indent=4)
+
+        return gb
+
     else:
         raise Exception('Train or test data not received')
 
 
 if __name__ == '__main__':
     from src.set_logger import set_logger
+
     set_logger('train_model')
     train_model()

@@ -8,6 +8,10 @@ split_data:
   split_ratio: 0.250
   random_state: 0
 
+reports:
+  scores: reports/scores.json
+  params: reports/params.json
+
 log_dir: logs
 
 target_data: expenses

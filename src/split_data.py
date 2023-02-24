@@ -46,6 +46,6 @@ def split_data(config_path: str = 'params.yaml') -> (pd.DataFrame, pd.DataFrame)
 if __name__ == '__main__':
     from src.set_logger import set_logger
 
-    set_logger('split_data')
+    set_logger('test_split_data')
     train, test = split_data()
 
