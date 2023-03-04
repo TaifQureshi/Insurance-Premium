@@ -18,6 +18,8 @@ target_data: expenses
 
 model_dirs: saved_models
 
+encoder: encoded.pkl
+
 webapp_model: model.pkl
 
 model:

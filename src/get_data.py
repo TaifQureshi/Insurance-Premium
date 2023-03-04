@@ -4,6 +4,7 @@ from src.config import get_config, get_base_path
 import logging
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
+import joblib
 
 logger = logging.getLogger('data')
 
@@ -51,7 +52,20 @@ def get_processed_data(config_path: str = 'params.yaml') -> pd.DataFrame or None
 
     data.drop(axis=1, columns=['age', 'bmi'], inplace=True)
     data['expenses'] = data['expenses'].apply(np.round)
-    en_coded = pd.get_dummies(data, columns=['sex', 'smoker', 'region'])
+
+    one = OneHotEncoder()
+    df = one.fit_transform(data[['sex', 'smoker', 'region']]).toarray()
+    ohe_labels = one.get_feature_names_out(['sex', 'smoker', 'region'])
+    df = pd.DataFrame(df, columns=ohe_labels)
+
+    data.drop(columns=['sex', 'smoker', 'region'], axis=0, inplace=True)
+    en_coded = pd.concat([data, df], axis=1)
+
+    encoder = config['model_dirs']
+    model_dir = os.path.join(base_dir, encoder)
+    os.makedirs(model_dir, exist_ok=True)
+    model_dir = os.path.join(model_dir, config['encoder'])
+    joblib.dump(one, model_dir)
 
     logger.info("saving the data for future use")
     if not os.path.exists(os.path.dirname(full_path)):

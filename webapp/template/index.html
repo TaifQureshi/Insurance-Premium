@@ -13,14 +13,15 @@
   <body>
     <div class="container my-5 bg-light shadow-lg my-container">
       <h1 class="text-center">Insurance Premium Prediction</h1>
-      <form>
+      <form action="{{ url_for('index')}}" method="post">
         <div class="form-group">
           <label for="age">Age:</label>
-          <select class="form-control" id="age">
-            <option value="teenage">Teenage (0-17)</option>
-            <option value="adult">Adult (18-25)</option>
-            <option value="middle_age">Middle Age (25-60)</option>
-            <option value="old">Old (60+)</option>
+          <select class="form-control" id="age" name="age">
+            <option value="0">(0-17)</option>
+            <option value="1">(18-25)</option>
+            <option value="2">(25-40)</option>
+            <option value="3">(40-60)</option>
+            <option value="4">(60+)</option>
           </select>
         </div>
         <div class="form-group">
@@ -38,20 +39,20 @@
         </div>
         <div class="form-group">
           <label for="bmi">BMI:</label>
-          <select class="form-control" id="bmi">
-            <option value="under_weight">Underweight (0-18.5)</option>
-            <option value="healthy">Healthy (18.5-25)</option>
-            <option value="overweight">Overweight (25-30)</option>
-            <option value="obesity">Obesity (30+)</option>
+          <select class="form-control" id="bmi" name="bmi">
+            <option value="0">Underweight (0-18.5)</option>
+            <option value="1">Healthy (18.5-25)</option>
+            <option value="2">Overweight (25-30)</option>
+            <option value="3">Obesity (30+)</option>
           </select>
         </div>
         <div class="form-group">
           <label for="region">Region:</label>
-          <select class="form-control" id="region">
-            <option value="north_east">North East</option>
-            <option value="north_west">North West</option>
-            <option value="south_east">South East</option>
-            <option value="south_west">South West</option>
+          <select class="form-control" id="region" name="region">
+            <option value="northeast">North East</option>
+            <option value="northwest">North West</option>
+            <option value="southeast">South East</option>
+            <option value="southwest">South West</option>
           </select>
         </div>
         <div class="form-group">
@@ -68,11 +69,17 @@
               No
             </label>
           </div>
+          <div class="form-group">
+            <label for="children">No of Children:</label>
+            <input class="form-control" type="text" name="children" id="children" value=0 min=0 step="1">
+          </div>
         </div>
+        {% if output %}
         <div class="form-group">
           <label for="output">Predicted Premium:</label>
-          <input type="text" class="form-control" id="output" disabled />
+          <input type="text" class="form-control" id="output" disabled value={{output}} >
         </div>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Predict</button>
       </form>
     </div>
