@@ -10,7 +10,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +24,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-     - name: Running pipeline
+    
+    - name: Running pipeline
       run: |
         python run.py
 
