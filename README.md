@@ -43,13 +43,6 @@ The performance of the model is evaluated using mean squared error (MSE) and R-s
 
 This project provides a basic implementation of an insurance premium prediction model. The code and methodology can be used as a starting point for building more advanced models or for exploring different regression algorithms.
 
-## Contributions
-
-- Taif
-- Sahil
-
-Thanks to Taif and Sahil for their contributions to this project.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
