@@ -22,7 +22,7 @@ To set up the environment, you need to install the required packages. You can us
 
 The code is written in Python and can be executed using a Jupyter Notebook or any other Python environment.
 
-The dataset used for training and testing the model is included in the `data` folder. To train the model, simply run the cells in the Jupyter Notebook or execute the script `insurance_premium_prediction.py`.
+The dataset used for training and testing the model is included in the `data` folder. To train the model, simply run the cells in the Jupyter Notebook or execute the script `run.py`.
 
 ## File Directory
 
